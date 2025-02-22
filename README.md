@@ -11,10 +11,3 @@ This is a Java-based **Bank Account Management System** that implements OOP conc
 ## 🛠️ Technologies Used
 - **Java** for Backend
 - **Git & GitHub** for Version Control
-
-## ⚙️ Setup & Run
-```sh
-git clone https://github.com/anirudh2843/Bank_Acc_Management_System.git
-cd Bank_Acc_Management_System
-javac BankAccountApplication.java
-java BankAccountApplication
