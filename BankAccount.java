@@ -1,4 +1,6 @@
-public class BankAccount {
+
+abstract class BankAccount {
+
     private int accountNumber;
     private double balance;
 
@@ -18,33 +20,25 @@ public class BankAccount {
     public void depositAmount(double amount) {
         if (amount > 0) {
             balance += amount;
-            System.out.println();
-            System.out.println("Deposit Successful! New balance: " + balance);
+            System.out.println("\nDeposit Successful! New balance: " + balance);
         } else {
             System.out.println("Invalid deposit amount.");
         }
     }
 
     public void withdrawAmount(double amount) {
-        if (amount > 0 && amount <= balance) { // Fixed condition
+        if (amount > 0 && amount <= balance) {
             balance -= amount;
-            System.out.println();
-            System.out.println("Withdrawal Successful!");
-            System.out.println("New balance: " + balance);
+            System.out.println("\nWithdrawal Successful! New balance: " + balance);
         } else {
             System.out.println("Insufficient funds or invalid amount.");
         }
     }
 
     public void checkBalance() {
-        System.out.println();
-        System.out.println("Current Balance: " + balance);
+        System.out.println("\nCurrent Balance: " + balance);
     }
 
-    public void calculateInterest() {
-        double interestRate = 0.05;
-        double interestAdded = getBalance() * interestRate;
-        depositAmount(interestAdded);
-        System.out.println("Interest of " + interestAdded + " added.");
-    }
+    // Abstract method - Must be implemented by subclasses
+    public abstract void calculateInterest();
 }

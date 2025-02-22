@@ -6,10 +6,10 @@ public class BankAccountApplication {
 
         try {
             // Creating Saving Account
-            SavingAccount sa1 = new SavingAccount(101, 100000, 0.07);  
-            System.out.println("***** WELCOME TO SBI BANK *****");
+            BankAccount sa1 = new SavingAccount(101, 100000, 0.07);
+            System.out.println("\n***** WELCOME TO SBI BANK *****");
             System.out.println("Account Number: " + sa1.getAccountNumber());
-            System.out.println("Account Balance: " + sa1.getBalance());
+            System.out.printf("Account Balance: ", sa1.getBalance());
 
             String endSession;
             do {
@@ -20,20 +20,30 @@ public class BankAccountApplication {
                 System.out.println("4. Check Balance");
                 System.out.print("Choose an operation (1-4): ");
 
-                try {
+                if (sc.hasNextInt()) {
                     int operation = sc.nextInt();
 
                     switch (operation) {
                         case 1:
                             System.out.print("Enter the Amount to Deposit: ");
-                            double dAmount = sc.nextDouble();
-                            sa1.depositAmount(dAmount);
+                            if (sc.hasNextDouble()) {
+                                double dAmount = sc.nextDouble();
+                                sa1.depositAmount(dAmount);
+                            } else {
+                                System.out.println("Invalid amount! Please enter a valid number.");
+                                sc.next();
+                            }
                             break;
 
                         case 2:
                             System.out.print("Enter the Amount to Withdraw: ");
-                            double wAmount = sc.nextDouble();
-                            sa1.withdrawAmount(wAmount);
+                            if (sc.hasNextDouble()) {
+                                double wAmount = sc.nextDouble();
+                                sa1.withdrawAmount(wAmount);
+                            } else {
+                                System.out.println("Invalid amount! Please enter a valid number.");
+                                sc.next();
+                            }
                             break;
 
                         case 3:
@@ -47,9 +57,9 @@ public class BankAccountApplication {
                         default:
                             System.out.println("Invalid choice! Please enter a number between 1 and 4.");
                     }
-                } catch (Exception e) {
+                } else {
                     System.out.println("Invalid input! Please enter numbers only.");
-                    sc.nextLine(); 
+                    sc.next();
                 }
 
                 System.out.print("\nDo you want to exit? (yes/no): ");

@@ -1,4 +1,4 @@
-public class SavingAccount extends BankAccount {
+class SavingAccount extends BankAccount {
     private double interestRate;
 
     public SavingAccount(int accountNumber, double balance, double interestRate) {
