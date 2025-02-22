@@ -1,24 +1,15 @@
-
-
 public class SavingAccount extends BankAccount {
+    private double interestRate;
 
-    //inherited attributes and methods
-    //attribute
-    private double interestrate;
-
-    //constructor
-    public SavingAccount(int accountno, double balance, double interest) {
-        //super
-        super(accountno, balance);
-        this.interestrate = interest;
+    public SavingAccount(int accountNumber, double balance, double interestRate) {
+        super(accountNumber, balance);
+        this.interestRate = interestRate;
     }
 
-    //method-->calculate interest
     @Override
-    public void calinterest() {
-        double interest = getBalance() * interestrate;
-        deposit_amount(interest);
-        System.out.println("The interest added is " + interest);
+    public void calculateInterest() {
+        double interest = getBalance() * interestRate;
+        depositAmount(interest);
+        System.out.println("Interest of " + interest + " added.");
     }
-
 }

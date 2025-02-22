@@ -1,18 +1,12 @@
-
-
 public class BankAccount {
-
-    //attributes
     private int accountNumber;
     private double balance;
 
-    //constructors
-    public BankAccount(int accountnumber, double balance) {
-        this.accountNumber = accountnumber;
+    public BankAccount(int accountNumber, double balance) {
+        this.accountNumber = accountNumber;
         this.balance = balance;
     }
 
-    //getters
     public int getAccountNumber() {
         return accountNumber;
     }
@@ -21,43 +15,36 @@ public class BankAccount {
         return balance;
     }
 
-    //Setters
-    public void setaccountnumber(int accnumber) {
-        this.accountNumber = accnumber;
-    }
-
-    public void setbalance(double accbalance) {
-        this.balance = accbalance;
-    }
-
-    //methods
-    public void deposit_amount(double amount) {
+    public void depositAmount(double amount) {
         if (amount > 0) {
-            balance = balance + amount;
-            System.out.println("Amount Deposited, new balance :" + balance);
+            balance += amount;
+            System.out.println();
+            System.out.println("Deposit Successful! New balance: " + balance);
         } else {
-            System.out.println("Invalid Amount.");
+            System.out.println("Invalid deposit amount.");
         }
     }
 
-    public void withdraw_amount(double amount) {
-        if (amount > 0 && amount < balance) {
-            balance = balance - amount;
-            System.out.println("Withdraw done. balance :" + balance);
+    public void withdrawAmount(double amount) {
+        if (amount > 0 && amount <= balance) { // Fixed condition
+            balance -= amount;
+            System.out.println();
+            System.out.println("Withdrawal Successful!");
+            System.out.println("New balance: " + balance);
         } else {
-            System.out.println("Insufficient fund or invalid amount");
+            System.out.println("Insufficient funds or invalid amount.");
         }
     }
 
-    public void check_balance() {
-        System.out.println("Balance is :" + balance);
+    public void checkBalance() {
+        System.out.println();
+        System.out.println("Current Balance: " + balance);
     }
 
-    public void calinterest() {
-        double interest = 0.05;
-        double interestadded = getBalance() * interest;
-        deposit_amount(interestadded);
-        System.out.println("The interest added is " + interestadded);
+    public void calculateInterest() {
+        double interestRate = 0.05;
+        double interestAdded = getBalance() * interestRate;
+        depositAmount(interestAdded);
+        System.out.println("Interest of " + interestAdded + " added.");
     }
-
 }
