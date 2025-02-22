@@ -6,7 +6,7 @@ public class BankAccountApplication {
 
         try {
             // Creating Saving Account
-            SavingAccount sa1 = new SavingAccount(101, 100000, 0.07);  // 7% interest
+            SavingAccount sa1 = new SavingAccount(101, 100000, 0.07);  
             System.out.println("***** WELCOME TO SBI BANK *****");
             System.out.println("Account Number: " + sa1.getAccountNumber());
             System.out.println("Account Balance: " + sa1.getBalance());
